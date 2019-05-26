@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive tabs</title>
+    <style>
+    *
+    {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        list-style-type: none;
+        line-height: 1.6;
+    }
+
+    .wrapper
+    {
+        font-size: 20px;
+        margin: 20px auto;
+        max-width: 80%;
+        background: rgb(51, 58, 65);
+        border-radius: 5px;
+        padding: 20px 60px;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    ul li{
+        display: inline-block;
+        background: rgb(90, 100, 109);
+        padding: 6px 50px;
+        border-radius: 5px 2px;
+    }
+
+   .active
+    {
+        background: rgb(53, 141, 223);
+    }
+    
+    .content-box
+    {
+        display: none;
+        color: #fff;
+        padding-left: 4px;
+        animation: fade 0.5s ease-in;
+    }
+
+    @keyframes fade{
+        from
+        {
+            opacity: 0;
+        }
+
+        to
+        {
+            opacity: 1;
+        }
+    }
+
+    .tabs
+    {
+        max-width: 60%;
+        margin: 4px auto;
+        color: rgb(255, 255, 255);
+    }
+
+    h1
+    {
+        text-align: center;
+        margin: 100px 0 0 0;
+    }
+
+    @media screen and (max-width:1024px)
+    {
+        .tabs
+        {
+            max-width: 60%;
+        }
+
+        ul li{
+        padding: 4px 30px;
+        }
+
+        .tab{
+            margin: 2px;
+        }
+    }
+
+    @media screen and (max-width:768px)
+    {
+        .tabs
+        {
+            max-width: 70%;
+        }
+
+        ul li{
+        padding: 4px 20px;
+        }
+
+        .tab{
+            margin: 2px;
+        }
+    }
+    @media screen and (max-width:768px)
+    {
+        .tabs
+        {
+            max-width: 70%;
+        }
+
+        ul li{
+        padding: 4px 20px;
+        }
+
+        .tab{
+            margin: 2px;
+        }
+    }
+
+    @media screen and (max-width:480px)
+    {
+        .tabs
+        {
+            max-width: 60%;
+        }
+
+        ul li{
+        padding: 4px 20px;
+        }
+
+        .tab{
+            margin: 2px;
+        }
+
+        .wrapper{
+            font-size: 18px;
+            }
+    }
+
+    @media screen and (max-width:320px)
+    {
+        .wrapper{
+            font-size: 15px;
+            margin: 10px auto;
+            }
+
+       h1{
+            font-size:1.5em;
+            margin: 80px 0 0 0;
+        }
+
+        .tabs
+        {
+            max-width: 70%;
+        }
+
+        .tab{
+            margin: 2px;
+        }
+
+        ul li{
+        padding: 4px 30px;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+        <h1>Responsive Tabs</h1>
+    <div class="wrapper">
+        
+    <div class="tabs">
+        <ul>
+            <li id="tab-1" class="tab active" onclick="display(event,'one')">Tab 1</li>
+            <li id="tab-2" class="tab" onclick="display(event,'two')">Tab 2</li>
+            <li id="tab-3" class="tab" onclick="display(event,'three')">Tab 3</li>
+            <li id="tab-4" class="tab" onclick="display(event,'four')">Tab 4</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="one" class="content-box" style="display:block;">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur totam saepe mollitia aut minima eaque fugiat
+                enim id facilis perspiciatis fuga voluptatum deleniti odit, et officia ipsa temporibus architecto impedit!</p>
+        </div>
+        <div id="two" class="content-box">
+            <p>ipsum, dolor sit amet consectetur adipisicing elit. Consequatur totam saepe mollitia aut minima eaque fugiat
+                enim id facilis perspiciatis fuga voluptatum deleniti odit, et officia ipsa temporibus architecto impedit!</p>
+        </div>
+        <div id="three" class="content-box">
+            <p>dolor sit amet consectetur adipisicing elit. Consequatur totam saepe mollitia aut minima eaque fugiat
+                enim id facilis perspiciatis fuga voluptatum deleniti odit, et officia ipsa temporibus architecto impedit!</p>
+        </div>
+        <div id="four" class="content-box">
+            <p>sit amet consectetur adipisicing elit. Consequatur totam saepe mollitia aut minima eaque fugiat
+                enim id facilis perspiciatis fuga voluptatum deleniti odit, et officia ipsa temporibus architecto impedit!</p>
+        </div>
+    </div>
+</div>
+<script>
+    function display(evt,name){
+    var tabs=document.getElementsByClassName("tab");
+    for(var i=0;i<tabs.length;i++)
+    {
+        tabs[i].className=tabs[i].className.replace(" active","");
+    }
+
+    var content=document.getElementsByClassName("content-box");
+    for(var i=0;i<tabs.length;i++)
+    {
+        content[i].style.display="none";
+    }
+    document.getElementById(name).style.display="block";
+    evt.currentTarget.className+=" active";    }
+
+
+</script>
+</body>
+</html>
